@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Reply to Your Comment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #333333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .content h2 {
+            color: #5eb3b7;
+            margin-top: 0;
+        }
+
+        .thread-container {
+            margin: 30px 0;
+        }
+
+        .comment-box {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .comment-box.original {
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+        }
+
+        .comment-box.reply {
+            background-color: #e7f9f9;
+            border-left: 4px solid #5eb3b7;
+            margin-left: 30px;
+        }
+
+        .comment-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .reply-label {
+            color: #5eb3b7;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .author-details {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .comment-time {
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .comment-text {
+            color: #495057;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .post-context {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .post-context h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .post-context p {
+            margin: 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #5eb3b7 0%, #87d9db 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #5eb3b7 0%, #87d9db 100%);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #ffffff;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .unsubscribe {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .unsubscribe a {
+            color: #6c757d;
+            text-decoration: underline;
+        }
+
+        .conversation-icon {
+            font-size: 50px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 Someone Replied to You!</h1>
+        </div>
+
+        <div class="content">
+            <h2>Hello {{originalCommenterName}}!</h2>
+
+            <p><strong>{{replyAuthorName}}</strong> replied to your comment.</p>
+
+            <div class="post-context">
+                <h4>📝 On the post:</h4>
+                <p><strong>{{postTitle}}</strong></p>
+            </div>
+
+            <div class="thread-container">
+                <div class="comment-box original">
+                    <div class="comment-label">Your Comment</div>
+                    <div class="author-info">
+                        <div class="author-avatar">{{originalCommenterInitial}}</div>
+                        <div class="author-details">
+                            <p class="author-name">{{originalCommenterName}}</p>
+                            <p class="comment-time">{{originalCommentTime}}</p>
+                        </div>
+                    </div>
+                    <p class="comment-text">{{originalCommentText}}</p>
+                </div>
+
+                <div class="conversation-icon">↓</div>
+
+                <div class="comment-box reply">
+                    <div class="comment-label reply-label">New Reply</div>
+                    <div class="author-info">
+                        <div class="author-avatar">{{replyAuthorInitial}}</div>
+                        <div class="author-details">
+                            <p class="author-name">{{replyAuthorName}}</p>
+                            <p class="comment-time">{{replyTime}}</p>
+                        </div>
+                    </div>
+                    <p class="comment-text">{{replyText}}</p>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{{viewThreadUrl}}" class="btn-primary">View Full Thread</a>
+                <a href="{{replyBackUrl}}" class="btn-secondary">Reply Back</a>
+            </div>
+
+            <p style="color: #6c757d; font-size: 14px; margin-top: 30px;">
+                Keep the conversation going! Your engagement helps create meaningful discussions.
+            </p>
+
+            <p>Best regards,<br>
+                <strong>The Team</strong>
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>© {{year}} Our Platform. All rights reserved.</p>
+            <div class="unsubscribe">
+                <p>You're receiving this because you have reply notifications enabled.</p>
+                <a href="{{notificationSettingsUrl}}">Manage notification preferences</a> |
+                <a href="{{unsubscribeUrl}}">Unsubscribe</a>
+            </div>
+            <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                {{companyAddress}}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

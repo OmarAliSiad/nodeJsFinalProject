@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Comment on Your Post</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .content h2 {
+            color: #fa709a;
+            margin-top: 0;
+        }
+
+        .post-preview {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #fa709a;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .post-preview h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .comment-box {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .commenter-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .commenter-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .commenter-details {
+            flex: 1;
+        }
+
+        .commenter-name {
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .comment-time {
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .comment-text {
+            color: #495057;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #ffffff;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .unsubscribe {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .unsubscribe a {
+            color: #6c757d;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 New Comment!</h1>
+        </div>
+
+        <div class="content">
+            <h2>Hello {{postAuthorName}}!</h2>
+
+            <p><strong>{{commenterName}}</strong> commented on your post.</p>
+
+            <div class="post-preview">
+                <h3>{{postTitle}}</h3>
+                <p style="color: #6c757d; margin: 0;">{{postExcerpt}}</p>
+            </div>
+
+            <div class="comment-box">
+                <div class="commenter-info">
+                    <div class="commenter-avatar">{{commenterInitial}}</div>
+                    <div class="commenter-details">
+                        <p class="commenter-name">{{commenterName}}</p>
+                        <p class="comment-time">{{commentTime}}</p>
+                    </div>
+                </div>
+                <p class="comment-text">{{commentText}}</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{{viewCommentUrl}}" class="btn-primary">View Comment</a>
+                <a href="{{replyUrl}}" class="btn-secondary">Reply</a>
+            </div>
+
+            <p style="color: #6c757d; font-size: 14px; margin-top: 30px;">
+                This is a great opportunity to engage with your audience. A quick reply can help build a stronger
+                community!
+            </p>
+
+            <p>Best regards,<br>
+                <strong>The Team</strong>
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>© {{year}} Our Platform. All rights reserved.</p>
+            <div class="unsubscribe">
+                <p>You're receiving this because you have comment notifications enabled.</p>
+                <a href="{{notificationSettingsUrl}}">Manage notification preferences</a> |
+                <a href="{{unsubscribeUrl}}">Unsubscribe</a>
+            </div>
+            <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                {{companyAddress}}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
